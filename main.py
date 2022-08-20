@@ -29,6 +29,6 @@ async def random_hamster(request: Request, redirect: bool = False):
 
 """
 if __name__ == "__main__":
-    code = "uvicorn app:app --host 0.0.0.0 --port 80 --reload"
+    code = "uvicorn main:app --host 0.0.0.0 --port 80 --reload"
     os.system(code)
 """
