@@ -12,13 +12,15 @@ load_dotenv()
 app = FastAPI(title="jotte.xyz api", description="an api", version=1.0, docs_url="/")
 root_dir = os.path.dirname(os.path.realpath(__file__))
 
-app.mount("/images", StaticFiles(directory="images"), name="images")
+app.mount("/hamsters/image", StaticFiles(directory="images/hamsters"), name="hamsters")
+
+
 
 @app.get("/hamsters/random")
 async def random_hamster(request: Request, redirect: bool = False):
     path = os.path.join(root_dir, "images", "hamsters")
     image = random.choice(os.listdir(path))
-    url = str(request.base_url)+"images/hamsters/" + image
+    url = str(request.base_url)+"hamsters/image/" + image
     if redirect:
         return RedirectResponse(url)
     return {
