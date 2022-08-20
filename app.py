@@ -26,7 +26,11 @@ async def random_hamster(request: Request, redirect: bool = False):
     url = str(request.base_url)+"images/hamsters/" + image
     if redirect:
         return RedirectResponse(url)
-    return {"url": url}
+    return {
+        "url": url,
+        "notice": "If one of these pictures in the database is your hamster, or you have rights to the image and wish for it to be removed, contact admin@jotte.xyz",
+    }
+
 
 if __name__ == "__main__":
     code = "uvicorn app:app --host 0.0.0.0 --port 80 --reload"
