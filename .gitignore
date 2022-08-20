@@ -1,1 +1,3 @@
 images/hamsters/*
+.env
+*.pyc
