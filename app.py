@@ -1,18 +1,13 @@
 from fastapi import FastAPI, Request
 from fastapi.responses import RedirectResponse
 from fastapi.staticfiles import StaticFiles
-from starlette.responses import Response
 
 from dotenv import load_dotenv
 
 import os
 import random
-import asyncio
 
 load_dotenv()
-
-api_keys = []
-db = None
 
 app = FastAPI(title="jotte.xyz api", description="an api", version=1.0, docs_url="/")
 root_dir = os.path.dirname(os.path.realpath(__file__))
