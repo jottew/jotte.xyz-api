@@ -9,11 +9,11 @@ import random
 
 load_dotenv()
 
+root = os.path.dirname(os.path.realpath(__file__))
 app = FastAPI(title="jotte.xyz api", description="an api", version=1.0, docs_url="/")
 root_dir = os.path.dirname(os.path.realpath(__file__))
 
-app.mount("/hamsters/image", StaticFiles(directory="images/hamsters"), name="hamsters")
-
+app.mount("/hamsters/image", StaticFiles(directory=os.path.join(root, "images/hamsters")), name="hamsters")
 
 
 @app.get("/hamsters/random")
